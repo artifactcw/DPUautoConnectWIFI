@@ -111,8 +111,8 @@ class AutoEgde:
 
 def fileRead(file_name):
     with open(file_name,"r", encoding="utf-8") as f:
-        number[0] = f.readline()
-        password[0] = f.readline()
+        number = f.readline().split()
+        password = f.readline().split()
     return number, password
 
 
@@ -123,6 +123,8 @@ except IndexError:
     print("未修改文件")
 except Exception:
     print("未知错误")
+
+print(number,password,type(number),type(password))
 
 edge = AutoEgde("http://210.30.48.32/", number, password)
 
