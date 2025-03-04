@@ -111,14 +111,18 @@ class AutoEgde:
 
 def fileRead(file_name):
     with open(file_name,"r", encoding="utf-8") as f:
-        number = f.readline()
-        password = f.readline()
+        number[0] = f.readline()
+        password[0] = f.readline()
     return number, password
 
 
 wifi = Wifi(ssid="DPU_LianTong")
-
-number, password = fileRead("loginSet.txt")
+try:
+    number, password = fileRead("loginSet.txt")
+except IndexError:
+    print("未修改文件")
+except Exception:
+    print("未知错误")
 
 edge = AutoEgde("http://210.30.48.32/", number, password)
 
