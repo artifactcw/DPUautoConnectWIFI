@@ -113,7 +113,7 @@ def fileRead(file_name):
     with open(file_name,"r", encoding="utf-8") as f:
         number = f.readline().split()
         password = f.readline().split()
-    return number, password
+    return number[0], password[0]
 
 
 wifi = Wifi(ssid="DPU_LianTong")
